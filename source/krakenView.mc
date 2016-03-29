@@ -173,8 +173,8 @@ class krakenView extends Ui.View {
     	// for plotting we can easily generate different
     	// beats per minute with random
     	// motion
-    	//hr += Ma.rand()%20-10;
-    	//Sys.println("hr " + hr.toString());
+    	// hr += Ma.rand()%20-10;
+    	// Sys.println("hr " + hr.toString());
     	if (hr < 90){
         	dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT);
         } else if (hr < 120) {
