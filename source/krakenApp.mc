@@ -24,7 +24,7 @@ class krakenApp extends App.AppBase {
 	// for the fit file, but in future we might have
 	// better access
 	var fio_;
-
+	
     function initialize() {
         AppBase.initialize();
     	fio_ = new krakenFileIO();

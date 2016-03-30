@@ -48,6 +48,7 @@ class krakenView extends Ui.View {
     var fio_;
 
     function initialize(fio) {
+    	fio_ = fio;
     	// we update ones per minute
 	    update_frequency_ = 60;
 	    // Sys.println("DEBUG MODE HIGH FREQUENCY UPDATE");
