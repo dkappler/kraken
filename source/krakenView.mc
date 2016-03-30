@@ -34,11 +34,6 @@ class krakenView extends Ui.View {
 	// we need a timer to trigger the update
 	var timer_;
 	
-	// our storage, right now a thin wrapper
-	// for the fit file, but in future we might have
-	// better access
-	var fio_;
-	
 	// array with the heart rate history
 	var hr_history_;
 	// the latest value we did write
@@ -46,8 +41,13 @@ class krakenView extends Ui.View {
 	
 	// the main update frequency of the 
     var update_frequency_;
+    
+	// our storage, right now a thin wrapper
+	// for the fit file, but in future we might have
+	// better access
+    var fio_;
 
-    function initialize() {
+    function initialize(fio) {
     	// we update ones per minute
 	    update_frequency_ = 60;
 	    // Sys.println("DEBUG MODE HIGH FREQUENCY UPDATE");
@@ -57,7 +57,6 @@ class krakenView extends Ui.View {
 	    // add date
 	    // add steps
         View.initialize();
-    	fio_ = new krakenFileIO();
     	initialized_ = false;
     	
     
@@ -266,13 +265,11 @@ class krakenView extends Ui.View {
     //! the state of this View and prepare it to be shown. This includes
     //! loading resources into memory.
     function onShow() {
-    	fio_.open();
     }
     //! Called when this View is removed from the screen. Save the
     //! state of this View here. This includes freeing resources from
     //! memory.
     function onHide() {
-    	fio_.close();
     }
 
 }

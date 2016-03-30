@@ -19,21 +19,30 @@ using Toybox.WatchUi as Ui;
 
 class krakenApp extends App.AppBase {
 
+
+	// our storage, right now a thin wrapper
+	// for the fit file, but in future we might have
+	// better access
+	var fio_;
+
     function initialize() {
         AppBase.initialize();
+    	fio_ = new krakenFileIO();
     }
 
     //! onStart() is called on application start up
     function onStart() {
+    	fio_.open();
     }
 
     //! onStop() is called when your application is exiting
     function onStop() {
+    	fio_.close();
     }
 
     //! Return the initial view of your application here
     function getInitialView() {
-        return [ new krakenView(), new krakenDelegate() ];
+        return [ new krakenView(fio_), new krakenDelegate() ];
     }
 
 }
